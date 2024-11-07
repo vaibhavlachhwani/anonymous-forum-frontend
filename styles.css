@@ -1,0 +1,54 @@
+/* Body styling */
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  background-color: #e0ded7; /* Background color */
+  color: #333;
+}
+
+/* Headings */
+h1,
+h2,
+h3 {
+  color: #006953; /* Primary color */
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 8px 15px;
+  background-color: #006953; /* Primary color */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn:hover {
+  background-color: #004c3e; /* Darker shade of primary color */
+}
+
+/* Input and textarea styling */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0 15px;
+  border: 1px solid #a9c7b8; /* Secondary color */
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+/* Post and comment boxes */
+.post,
+.comment {
+  border: 1px solid #a9c7b8; /* Secondary color */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  background-color: #f7f6f2; /* Slightly lighter than the background */
+}

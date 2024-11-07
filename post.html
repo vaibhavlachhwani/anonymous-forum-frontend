@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Details</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #e0ded7;
+        color: #333;
+      }
+      .container {
+        width: 70%;
+        margin: auto;
+        padding-top: 20px;
+      }
+      h1 {
+        color: #006953;
+      }
+      .comments-section {
+        margin-top: 30px;
+      }
+      .comment-form input,
+      .comment-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #a9c7b8;
+        border-radius: 5px;
+      }
+      .comment-form button {
+        background-color: #006953;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      .comment-form button:hover {
+        background-color: #004d33;
+      }
+      .comment {
+        background-color: #a9c7b8;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Post Title</h1>
+      <p>Post content goes here.</p>
+
+      <div class="comments-section">
+        <h2>Comments</h2>
+
+        <!-- Comment form -->
+        <div class="comment-form">
+          <textarea
+            id="commentContent"
+            rows="4"
+            placeholder="Add a comment..."
+          ></textarea>
+          <input type="hidden" id="userId" value="1" />
+          <!-- Set the user ID here (e.g., logged-in user's ID) -->
+          <button onclick="submitComment()">Post Comment</button>
+        </div>
+
+        <!-- Comments will be displayed here -->
+        <div id="commentsList"></div>
+      </div>
+    </div>
+
+    <script>
+      // Function to handle comment submission
+      function submitComment() {
+        const content = document.getElementById("commentContent").value;
+        const userId = document.getElementById("userId").value;
+        const postId = 1; // Replace with actual post ID, depending on the post you're viewing
+
+        // Create the comment payload
+        const commentPayload = {
+          content: content,
+          userId: userId,
+        };
+
+        // Send the POST request to add a comment
+        fetch(`/api/posts/${postId}/comments`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(commentPayload),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            // Append the new comment to the comment list
+            const commentList = document.getElementById("commentsList");
+            const commentElement = document.createElement("div");
+            commentElement.classList.add("comment");
+            commentElement.innerHTML = `
+                    <strong>${data.user.name}</strong>: ${data.content}
+                `;
+            commentList.appendChild(commentElement);
+
+            // Clear the comment input field
+            document.getElementById("commentContent").value = "";
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
