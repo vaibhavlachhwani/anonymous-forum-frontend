@@ -49,6 +49,7 @@ h1 {
   background-color: #006953;
   color: white;
   padding: 0.5rem 1rem;
+  margin-top: 10px;;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -67,22 +68,62 @@ h1 {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: #F7F6F2;
   justify-content: center;
   align-items: center;
 }
 
-.modal.show { /* Show modal when 'show' class is added */
+.modal.show {
   display: flex;
 }
 
 .modal-content {
   background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  width: 300px;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 350px;
+  max-width: 100%;
   text-align: center;
+  box-shadow: 0 10px 25px rgba(8, 8, 7, 0.1);
   position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content h2 {
+  font-size: 24px;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.modal-content form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.modal-content form input:focus {
+  border-color: #006953;
+}
+
+.modal-content form button {
+  width: 100%;
+  padding: 12px;
+  background-color: #006953;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-content form button:hover {
+  background-color: #006953;
 }
 
 .close {
@@ -111,7 +152,7 @@ h1 {
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0, 0.2, 0.3, 0.6);
 }
 
 .comment-author {
@@ -123,4 +164,50 @@ h1 {
 .comment-content {
   font-size: 1em;
   line-height: 1.5;
+}
+
+
+/*footer*/
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #f7f6f2;
+  padding: 10px 0;
+}
+footer a {
+  color: #006953;
+  text-decoration: none;
+}
+
+/* chatbot*/
+.chatbot-link {
+  margin-top:200px;
+  text-align: center;
+}
+.chatbot-link a {
+  display: inline-block;
+  background-color: #006953;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.chatbot-link a:hover {
+  background-color: #004d40;
+}
+
+/*content_text*/
+.content_text {
+  width: 100%; /* Make the width take the full container */
+  height: 140px; /* Increase height */
+  padding: 12px; /* Add padding inside the textarea */
+  font-size: 16px; /* Increase font size for better readability */
+  border-radius: 8px; /* Optional: rounded corners */
+  border: 1px solid #ccc; /* Optional: border color */
+  resize: vertical; /* Allow vertical resizing only */
+  box-sizing: border-box; /* Ensures padding is included in the total width/height */
 }

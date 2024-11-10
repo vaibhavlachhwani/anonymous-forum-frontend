@@ -23,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const content = document.getElementById("content").value;
 
     try {
-      const response = await fetch("http://localhost:8080/api/posts", {
+      const response = await fetch("anonymous-forum-production.up.railway.app:8080/api/posts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load posts from API
   async function loadPosts() {
     try {
-      const response = await fetch("http://localhost:8080/api/posts");
+      const response = await fetch("anonymous-forum-production.up.railway.app:8080/api/posts");
       const posts = await response.json();
 
       const postList = document.getElementById("postList");
