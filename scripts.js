@@ -1,4 +1,4 @@
-const API_URL = "https://anonymous-forum-production.up.railway.app:8080/api";
+const API_URL = "https://anonymous-forum-production.up.railway.app/api";
 
 // Load specific post and comments for post.html
 if (document.getElementById("postContainer")) {
